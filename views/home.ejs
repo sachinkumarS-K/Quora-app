@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All posts</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <h1 class="heading">Quora Posts</h1>
+    <div class="cont">
+    <% for (post of posts) { %>
+        
+        <div class="posts">
+            <div class="img">
+              <a href="http://localhost:8000/posts/<%= post.id %>"><img id="result" type="submit" onclick="submitForm(event)" src="https://cdn-icons-png.flaticon.com/512/57/57165.png" alt=""></a>
+            </div>
+           <div class="data">
+            <h3 class="userName">@<%= post.userName %></h3>
+            <h4 class="userContent"><%= post.content %></h4>
+            <button><a href="http://localhost:8000/posts/<%= post.id %>">See in detail</a></button>
+           </div>
+        </div>
+   <% } %>
+        <div class="postLink">
+            <a href="http://localhost:8000/posts/new" class="newPost">Create New Post</a>
+        </div>
+    </div>
+    <script>
+        var myForm = document.getElementById("myForm");
+        var result = document.getElementById("result");
+        function submitForm(event) {
+          // event.preventDefault();
+           myForm.submit();
+        }
+     </script>
+</body>
+</html>
