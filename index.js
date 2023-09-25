@@ -3,7 +3,6 @@ const {v4 : uuidv4} = require("uuid");
 const methodOverride = require("method-override");
 
 const app = express() ;
-
 const port = 8000 ;
 const path = require("path");
 
@@ -72,16 +71,17 @@ app.get("/posts/:id" , (req, res) => {
     console.log(id);
     let post = posts.find((e) => id ==e.id);
     console.log(post);
-    res.render("show.ejs" , {post})
+    res.render("show.ejs" , {post});
 });
+
 
 app.delete("/posts/:id" , (req , res) => {
     let {id} = req.params ;
     console.log(id);
      posts = posts.filter((e) => id !== e.id);
+     console.log(posts);
     res.redirect("/posts");
-    
-
+ 
 })
 
 app.listen(port , () => {

@@ -12,9 +12,10 @@
     <% for (post of posts) { %>
         
         <div class="posts">
-            <div class="img">
-              <a href="http://localhost:8000/posts/<%= post.id %>"><img id="result" type="submit" onclick="submitForm(event)" src="https://cdn-icons-png.flaticon.com/512/57/57165.png" alt=""></a>
-            </div>
+            <form method="post" action="/posts/<%=post.id %>?_method=DELETE">
+                <button type="submit" id="btn">❌</button>
+              <!-- <a href="http://localhost:8000/posts/<%= post.id %>"><img id="result" type="submit" onclick="submitForm(event)" src="https://cdn-icons-png.flaticon.com/512/57/57165.png" alt=""></a> -->
+            </form>
            <div class="data">
             <h3 class="userName">@<%= post.userName %></h3>
             <h4 class="userContent"><%= post.content %></h4>
@@ -26,13 +27,7 @@
             <a href="http://localhost:8000/posts/new" class="newPost">Create New Post</a>
         </div>
     </div>
-    <script>
-        var myForm = document.getElementById("myForm");
-        var result = document.getElementById("result");
-        function submitForm(event) {
-          // event.preventDefault();
-           myForm.submit();
-        }
-     </script>
+    
+     
 </body>
 </html>
